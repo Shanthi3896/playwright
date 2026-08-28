@@ -1,5 +1,5 @@
-import{test } from '../fixtures/baseFixture';
-import { DashboardPage } from '../pages/DashboardPage';
+import{test } from '../../fixtures/baseFixture';
+import { DashboardPage } from '../../pages/DashboardPage';
 
 test('E2E-Add product to cart with fixture', async({loggedInPage})=>{
     const dashboardPage = new DashboardPage(loggedInPage);
