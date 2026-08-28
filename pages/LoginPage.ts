@@ -16,9 +16,16 @@ export class LoginPage{
     }
     
     async login(username: string,password: string){
-        await this.usernameInput.fill(username);
-        await this.passwordInput.fill(password);
-        await this.loginButton.click();
+        try {
+            await this.usernameInput.fill(username);
+            await this.passwordInput.fill(password);
+            await this.loginButton.click();
+            console.log('Login successful');
+        } catch (error) {
+            console.error('Error occurred while logging in:', error);
+            await this.page.screenshot({ path: 'login_error.png' });
+            throw error;
+        }
     }
     async verifyLoginSuccessfull(){
         await expect(this.page).toHaveURL('https://rahulshettyacademy.com/client/#/dashboard/dash');
